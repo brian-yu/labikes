@@ -1,0 +1,8 @@
+#sidebar {
+	width: 40%;
+	max-height: 100vh;
+  	color: black;
+  	float: right;
+  	padding: 20px 40px;
+  	overflow-y: scroll;
+}

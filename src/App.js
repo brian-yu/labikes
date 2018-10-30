@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Map from './Map/Map.js';
+import Sidebar from './Sidebar/Sidebar.js';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedStation: null,
+    };
+  }
+
+  selectStation = (id) => {
+    this.setState({ selectedStation: id })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div id="brand" onClick={()=>this.selectStation(null)}>
+            <h1 id="logo">L.A. Bikes</h1>
+        </div>
+        <div id="container">
+          <Map
+            selectedStation={this.state.selectedStation}
+            selectStation={this.selectStation}
+          />
+          <Sidebar
+            selectedStation={this.state.selectedStation}
+            selectStation={this.selectStation}
+          />
+        </div>
       </div>
     );
   }
