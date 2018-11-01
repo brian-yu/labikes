@@ -6,3 +6,9 @@
   	padding: 20px 40px;
   	overflow-y: scroll;
 }
+
+.station-link {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}

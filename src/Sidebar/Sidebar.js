@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import './Sidebar.css';
-import passesvsmonth from './passesvsmonth.png';
 import StationInfo from '../Map/data/stationInfo.js';
-import { tripHourData, tripHourOptions, tripMonthData, tripMonthOptions, tripDurationData, tripDurationOptions } from './graphs.js';
+import {
+	tripHourData,
+	tripHourOptions,
+	tripMonthData,
+	tripMonthOptions,
+	tripDurationData,
+	tripDurationOptions,
+	monthPassData,
+	monthPassOptions 
+} from './graphs.js';
 import {Bar} from 'react-chartjs-2';
 
 
@@ -16,7 +24,7 @@ export default class Sidebar extends Component {
     }
 
     stationLink = (props) => {
-    	return <a href="#" onClick={() => this.props.selectStation(props.id)}>{StationInfo[props.id].name}</a>
+    	return <span href="#" class="station-link" onClick={() => this.props.selectStation(props.id)}>{StationInfo[props.id].name}</span>
     }
 
     defaultInfo = () => {
@@ -35,22 +43,27 @@ export default class Sidebar extends Component {
 						</li>
 						<li>
 							<p>
-							The most popular starting station during this period was <this.stationLink id={3069}/>.
-							The most popular destination was <this.stationLink id={3005}/>.
+							The most popular <strong>starting station</strong> during this period was <this.stationLink id={3069}/>.
 							</p>
 						</li>
 						<li>
-							<p>The average distance traveled was 4.14 miles.</p>
+							<p>
+							The most popular <strong>destination</strong> was <this.stationLink id={3005}/>.
+							</p>
 						</li>
 						<li>
-							<p>On average, there were 495 bike trips per day.</p>
+							<p>The average distance traveled was <strong>4.14 miles</strong>.</p>
+						</li>
+						<li>
+							<p>On average, there were <strong>495 bike trips</strong> per day.</p>
 						</li>
 					</ul>
 				<h4>Graphs & Analysis</h4>
 				<Bar data={tripHourData} options={tripHourOptions}/>
 				<Bar data={tripMonthData} options={tripMonthOptions}/>
 				<Bar data={tripDurationData} options={tripDurationOptions}/>
-				<img src={passesvsmonth} alt='graph'/>
+				<Bar data={monthPassData} options={monthPassOptions}/>
+				{/*<img src={passesvsmonth} alt='graph'/>*/}
 			</div>
     	)
     }

@@ -103,4 +103,63 @@ const tripDurationOptions = {
     }
 }
 
-export { tripHourData, tripHourOptions, tripMonthData, tripMonthOptions, tripDurationData, tripDurationOptions };
+const monthPassData = {
+	labels: months,
+	datasets: [
+		{
+			label: "Flex Pass",
+			backgroundColor: "rgba(255,99,132,0.5)",
+			borderColor: "rgba(151,187,205,0.8)",
+			hoverBackgroundColor: "rgba(255,99,132,0.75)",
+			hoverBorderColor: "rgba(151,187,205,1)",
+			data: [1667.0, 1586.0, 1178.0, 1266.0, 901.0, 627.0, 670.0, 599.0, 1023.0]
+		},
+		{
+			label: "Monthly Pass",
+			backgroundColor: "rgba(54,162,235,0.5)",
+			borderColor: "rgba(220,220,220,0.8)",
+			hoverBackgroundColor: "rgba(54,162,235,0.75)",
+			hoverBorderColor: "rgba(220,220,220,1)",
+			data: [9355.0, 13193.0, 10668.0, 10742.0, 9379.0, 6960.0, 6401.0, 6155.0, 8451.0]
+		},
+		{
+			label: "Staff Annual",
+			backgroundColor: "rgba(155, 89, 182,0.5)",
+			borderColor: "rgba(151,187,205,0.8)",
+			hoverBackgroundColor: "rgba(155, 89, 182,0.75)",
+			hoverBorderColor: "rgba(151,187,205,1)",
+			data: [0.0, 0.0, 0.0, 157.0, 93.0, 132.0, 0.0, 0.0, 0.0]
+		},
+		{
+			label: "Walk-up",
+			backgroundColor: "rgba(46, 204, 113, 0.5)",
+			borderColor: "rgba(151,187,205,0.8)",
+			hoverBackgroundColor: "rgba(46, 204, 113, 0.75)",
+			hoverBorderColor: "rgba(151,187,205,1)",
+			data: [398.0, 9374.0, 8020.0, 5994.0, 4057.0, 2894.0, 3276.0, 2779.0, 4432.0]
+		}
+	]
+}
+
+const monthPassOptions = {
+	scales: {
+		xAxes: [{
+	      scaleLabel: {
+	        display: true,
+	        labelString: 'Month'
+	      }
+	    }],
+	    yAxes: [{
+	      scaleLabel: {
+	        display: true,
+	        labelString: 'Number of Passes'
+	      }
+	    }]
+	},
+	title: {
+    	display: true,
+    	text: 'Number of each pass type vs. month'
+    }
+}
+
+export { tripHourData, tripHourOptions, tripMonthData, tripMonthOptions, tripDurationData, tripDurationOptions, monthPassData, monthPassOptions };
