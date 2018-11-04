@@ -24,7 +24,7 @@ export default class Sidebar extends Component {
     }
 
     stationLink = (props) => {
-    	return <span href="#" class="station-link" onClick={() => this.props.selectStation(props.id)}>{StationInfo[props.id].name}</span>
+    	return <span class="station-link" onClick={() => this.props.selectStation(props.id)}>{StationInfo[props.id].name}</span>
     }
 
     defaultInfo = () => {
