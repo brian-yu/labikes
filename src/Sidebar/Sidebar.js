@@ -27,6 +27,12 @@ export default class Sidebar extends Component {
     	return <span class="station-link" onClick={() => this.props.selectStation(props.id)}>{StationInfo[props.id].name}</span>
     }
 
+    randomStationLink = (props) => {
+		const keys = Object.keys(StationInfo);
+		const id = keys[ keys.length * Math.random() << 0];
+		return <this.stationLink id={id}/>;
+    }
+
     defaultInfo = () => {
 
     	return (
@@ -60,10 +66,16 @@ export default class Sidebar extends Component {
 					</ul>
 				<h4>Graphs & Analysis</h4>
 				<Bar data={tripHourData} options={tripHourOptions}/>
+				<p>The peak hour for bikeshare trips was 5:00PM, aligning nicely with the evening commute back home. There were also localized peaks at 8:00 AM and 12:00 PM, corresponding to the morning commute to work and lunch break.</p>
 				<Bar data={tripMonthData} options={tripMonthOptions}/>
+				<p>The number of bike trips declined significantly as winter arrived. Ridership steadily decreased as the months got colder before increasing again at the start of spring.</p>
 				<Bar data={tripDurationData} options={tripDurationOptions}/>
+				<p>Interestingly enough, January, February, and March were the months with the highest average trip duration, despite being at the tail end of winter.</p>
 				<Bar data={monthPassData} options={monthPassOptions}/>
-				{/*<img src={passesvsmonth} alt='graph'/>*/}
+				<p>As with the total number of bike trips, the number of rideshare passes declined in the winter months before starting to increase again as spring arrived.</p>
+
+				<h4>To learn more about a station, just click on it!</h4>
+				<h5>Or try this randomly selected station: <this.randomStationLink /></h5>
 			</div>
     	)
     }
