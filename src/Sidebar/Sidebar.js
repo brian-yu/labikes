@@ -33,6 +33,23 @@ export default class Sidebar extends Component {
 		return <this.stationLink id={id}/>;
     }
 
+    footer = () => {
+    	return (
+    		<div className="footer">
+    				<div>
+    					Made with <strong className="love">♡</strong> by {" "}
+    					<a class="station-link" href="https://byu.io">Brian Yu</a>
+    				</div>
+    				<div>
+    					<a class="station-link" href="https://github.com/brian-yu/labikes">Github</a>
+    				</div>
+    				<div>
+    					<a class="station-link" href="https://github.com/brian-yu/labikes/blob/master/data/Exploration.ipynb">Data Analysis</a>
+    				</div>
+    			</div>
+    		);
+    }
+
     defaultInfo = () => {
 
     	return (
@@ -145,7 +162,11 @@ export default class Sidebar extends Component {
 
     	return (
     		<div id="sidebar">
-    			{this.props.selectedStation ? <this.stationInfo/> : <this.defaultInfo/>}
+    			{this.props.selectedStation ? 
+    				<this.stationInfo/> : 
+    				(<div><this.defaultInfo/><this.footer/></div>)
+    			}
+    			{this.props.selectedStation ? <this.footer/> : null}
     		</div>
     	)
     }

@@ -5,10 +5,31 @@
   	float: right;
   	padding: 20px 40px;
   	overflow-y: scroll;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
+}
+
+.content {
+	min-height: 80%;
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.footer > div {
+	margin: 0px 15px;
 }
 
 .station-link {
 	color: blue;
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+.footer:hover .love {
+   color: red;
 }
