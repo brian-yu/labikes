@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.4.1",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^0.50.0",
     "react": "^16.6.0",
